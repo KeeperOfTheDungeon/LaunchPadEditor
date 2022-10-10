@@ -3,7 +3,7 @@
 import threading
 from time import sleep
 import pygame.midi as midi
-from figure.blink import Blink
+from figure.Blink.blink import Blink
 from figure.star import Star
 from launchpad.PadList import PadList
 from midi.MidiInput import MidiInput

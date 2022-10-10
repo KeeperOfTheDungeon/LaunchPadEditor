@@ -1,5 +1,6 @@
-from tkinter import Frame
+
 import tkinter
+from figure.Blink.BlinkEditor import BlinkEditor
 from figure.Dot.DotEditor import DotEditor
 from figure.disc.DiscEditor import DiscEditor
 from launchpad.EventEditor import EventEditor
@@ -22,9 +23,9 @@ class LaunchpadEditor:
 
 
         figures = {"none" : 0,
-                    "Dot" : DotEditor,
-                    "Disc" : DiscEditor}
-
+                    "Disc" : DiscEditor(),
+                    "Dot" : DotEditor(),
+                    "Blink" : BlinkEditor()}
 
 
         self.event_editor = EventEditor(600,20, figures)

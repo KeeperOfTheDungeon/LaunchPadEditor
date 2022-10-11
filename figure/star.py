@@ -1,4 +1,4 @@
-from figure.figure import Figure
+from Figure.Figure import Figure
 
 
 class Star(Figure):

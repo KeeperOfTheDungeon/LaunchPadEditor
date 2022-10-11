@@ -54,5 +54,7 @@ class EventEditor:
 
    
 
-    def select_pad(self, pad):
-        pass
+    def set_pad(self, pad):
+        self._combo_figure.set(pad.get_figure_name())
+
+   

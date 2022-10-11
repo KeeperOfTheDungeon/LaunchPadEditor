@@ -3,11 +3,11 @@
 import threading
 from time import sleep
 import pygame.midi as midi
-from figure.Blink.blink import Blink
-from figure.star import Star
-from launchpad.PadList import PadList
+from Figure.Blink.blink import Blink
+from Figure.Star import Star
+from Launchpad.PadList import PadList
 from midi.MidiInput import MidiInput
-from launchpad.pad import Pad
+from Launchpad.Pad import Pad
 
 
 DEVICE_NAME = b'LPProMK3 MIDI'

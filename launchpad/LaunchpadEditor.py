@@ -1,11 +1,15 @@
 
 import tkinter
-from figure.Blink.BlinkEditor import BlinkEditor
-from figure.Dot.DotEditor import DotEditor
-from figure.disc.DiscEditor import DiscEditor
-from launchpad.EventEditor import EventEditor
+from Figure.Blink.BlinkEditor import BlinkEditor
+from Figure.Dot.DotEditor import DotEditor
+from Figure.Dot.Dot import Dot
+from Figure.Default.Default import Default
+from Figure.Default.DefaultEditor import DefaultEditor
+from Figure.Disc.Disc import Disc
+from Figure.Disc.DiscEditor import DiscEditor
+from Launchpad.EventEditor import EventEditor
 
-from launchpad.PadEditor import  PadEditor
+from Launchpad.PadEditor import  PadEditor
 
 
 class LaunchpadEditor:
@@ -15,16 +19,16 @@ class LaunchpadEditor:
         self._frame.geometry("900x600")
         self._pad_list = list()
 
-        for x_index in range (0,7):
-            for y_index in range (0,7):
-                editor = PadEditor(30, 20 + x_index*80, 20 + y_index*80)
-                editor.bind("<ButtonPress-1>", self.editor_selected)
+        for y_index in range (0,7):
+            for x_index in range (0,7):
+                editor = PadEditor(self, 30, 20 + x_index*80, 20 + y_index*80)
+                #editor.bind("<ButtonPress-1>", self.editor_selected)
                 self._pad_list.append(editor)
 
 
-        figures = {"none" : 0,
-                    "Disc" : DiscEditor(),
-                    "Dot" : DotEditor(),
+        figures = { Default._name : DefaultEditor(),
+                    Disc._name : DiscEditor(),
+                    Dot._name : DotEditor(),
                     "Blink" : BlinkEditor()}
 
 
@@ -32,5 +36,10 @@ class LaunchpadEditor:
 
         self._frame.mainloop()
         
+
+    def pad_selected(self, pad):
+        self.event_editor.set_pad(pad)
+        print(pad)
+
     def editor_selected(self, event):
         print ("ditor_selected")

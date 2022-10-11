@@ -1,5 +1,5 @@
-from launchpad.LaunchpadEditor import LaunchpadEditor
-from launchpad.launchpad import Launchpad
+from Launchpad.LaunchpadEditor import LaunchpadEditor
+from Launchpad.Launchpad import Launchpad
 
 
 class Animator:

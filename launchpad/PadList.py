@@ -1,4 +1,4 @@
-from launchpad.pad import Pad
+from Launchpad.Pad import Pad
 
 
 class PadList:

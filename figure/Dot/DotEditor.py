@@ -1,5 +1,6 @@
 from tkinter import Label
-from figure.FigureEditor import FigureEditor
+from tkinter.colorchooser import askcolor
+from Figure.FigureEditor import FigureEditor
 
 
 class DotEditor(FigureEditor):
@@ -11,3 +12,6 @@ class DotEditor(FigureEditor):
         super().create(root)
         w = Label(self._frame , text="dot")
         w.place(x=10, y = 10, width = 40, height= 20)
+
+        colors = askcolor(title="Tkinter Color Chooser")
+        pass

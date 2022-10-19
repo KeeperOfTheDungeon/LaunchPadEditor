@@ -1,5 +1,6 @@
 
 import tkinter
+from Figure.Blink.Blink import Blink
 from Figure.Blink.BlinkEditor import BlinkEditor
 from Figure.Dot.DotEditor import DotEditor
 from Figure.Dot.Dot import Dot
@@ -29,7 +30,7 @@ class LaunchpadEditor:
         figures = { Default._name : DefaultEditor(),
                     Disc._name : DiscEditor(),
                     Dot._name : DotEditor(),
-                    "Blink" : BlinkEditor()}
+                    Blink._name : BlinkEditor()}
 
 
         self.event_editor = EventEditor(600,20, figures)

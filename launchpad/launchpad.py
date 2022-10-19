@@ -3,7 +3,9 @@
 import threading
 from time import sleep
 import pygame.midi as midi
-from Figure.Blink.blink import Blink
+from Color.Color import Color
+from Display.Display import Display
+from Figure.Blink.Blink import Blink
 from Figure.Star import Star
 from Launchpad.PadList import PadList
 from midi.MidiInput import MidiInput
@@ -18,7 +20,19 @@ class Launchpad:
         #self._pads = [Pad(x) for x in range(0,109)]
         self._pads = PadList()
         self._activeFigures = list()
-        
+
+        self._display = Display()
+
+        farbe = Color()
+        farbe.set_rgba(127,0,0,0)
+
+        self._display.set_pxel( 1,0, farbe )
+
+        farbe.set_rgba(0,0,127,0)
+        self._display.set_pxel( 2,2, farbe )
+      
+        farbe.set_rgba(0,127,0,0)
+        self._display.set_pxel( 4,4, farbe )
         self.init_midi()
 
         for pad in range (0 , self._pads.size()):
@@ -47,13 +61,22 @@ class Launchpad:
         x.start()
 
 
+    def write(self):
+        message = [0xF0, 0x00, 0x20, 0x29, 0x02, 0x0E, 0x03] + self._display.get_() +[0xf7]
+        self._midi_out.write_sys_ex(0, message)
+
 
     def run(self):
         while self.running == True:
-       
+        
+
     # read midi
                 
             sleep(0.001)
+
+            self.write()
+
+
 
 
 

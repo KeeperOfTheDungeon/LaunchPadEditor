@@ -6,7 +6,7 @@ from tkinter.ttk import Combobox
 class EventEditor:
     def __init__(self,  x_pos, y_pos, figures):
         self._frame = Frame( bg = "GRAY", borderwidth=1)  
-        
+        self._pad = None
 
         self._frame.config(highlightbackground = "RED", highlightcolor= "RED") 
         self._frame.place(height=400, width = 200, x=x_pos, y=y_pos)
@@ -49,12 +49,15 @@ class EventEditor:
 
         self._actual_editor = self._figure_list[self._combo_figure.get()]
         
-   
+        self._actual_editor.init_figure()
         self._actual_editor.create(self._frame)
+        #send Figure to pad
+        if self._pad != None:
+              self._pad.set_figure(self._actual_editor.get_figure())
 
-   
+
 
     def set_pad(self, pad):
         self._combo_figure.set(pad.get_figure_name())
-
+        self._pad = pad
    

@@ -1,5 +1,7 @@
 from tkinter import Frame
 
+from Figure.Figure import Figure
+
 
 class FigureEditor():
     def __init__(self):
@@ -23,3 +25,12 @@ class FigureEditor():
         self._frame.place_forget()
         self._frame.destroy()        
 
+
+    def init_figure(self):
+        self._figure = Figure()
+
+    def get_figure(self, figure):
+        self._figure = figure
+
+    def set_figure(self):
+        return self._figure

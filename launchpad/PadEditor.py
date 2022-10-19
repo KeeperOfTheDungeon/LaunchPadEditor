@@ -23,7 +23,7 @@ class PadEditor(Frame):
 
 
     def selected(self, event):
-        self._listener.pad_selected(self)
+        self._listener.pad_selected(self._pad)
 
 
     def mouse_released(self, event):

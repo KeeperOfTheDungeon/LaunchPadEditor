@@ -28,3 +28,6 @@ class Figure:
    
     def get_editor(self):
         pass
+
+
+ 

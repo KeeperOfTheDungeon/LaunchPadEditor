@@ -2,6 +2,9 @@ from Figure.Figure import Figure
 
 
 class Blink(Figure):
+
+    _name = "Blink"
+
     def __init__(self, root, midi_out):
         self._clock_divider = 20
         self._root = root
@@ -26,3 +29,5 @@ class Blink(Figure):
         # modulate color
         # modulate brightness
         pass    
+
+    
